@@ -9,7 +9,7 @@
 
 	<?php include "header.php"?>	
 	<section id="container">
-		<h1>REGISTRO</h1>
+		<h1>LISTA DE CITAS</h1>
         <form>
             <label for="nombre">Nombre de cliente</label>
             <input type="text" name="nombre" placeholder="Nombre comnpleto">

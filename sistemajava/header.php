@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+ 
+    if(empty($_SESSION['active']))//si no existe variable sesion
+    {
+      header('location: ../');//redireccionar a
+    }
+?>
+
 <header>
 		<div class="header">
 			

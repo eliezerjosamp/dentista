@@ -16,6 +16,7 @@
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {/*si resultados no estan vasios  comparar contraseñas */
       $_SESSION['user_id'] = $results['id'];/*almacena en variable sesion*/
+      $_SESSION['active']=true;
       header("Location: /Dentista/sistemajava");/*redirigir pagina inicial*/
     } else {
       $message = 'Losiento tus credenciales no coinciden';/*mensaje de error de logeo*/

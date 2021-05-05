@@ -31,9 +31,7 @@
     <?php require 'partials/header.php'?>
 
     <?php if(!empty($user)): /*si si no esta vasio la variable*/?>
-      <br> Bienvenido. <?= $user['email']; /*manadar mensaje*/?>
-      <br>Has inisiado sesion satisfactoriamente
-      <a href="logout.php">cerrar sesion</a>
+      <?php header("Location: /Dentista/sistemajava");?>
     <?php else: ?>
 
     <h1>porfavor registrese</h1>
