@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<?php include "scripts.php"?>
+	<?php include "includes/scripts.php"?>
 	<title>Sistema Odontologia</title>
 </head>
 <body>
 
-	<?php include "header.php"?>	
+	<?php include "includes/header.php"?>	
 	<section id="container">
-		<h1>REGISTRO</h1>
-        <form>
-            <label for="nombre">Nombre de cliente</label>
-            <input type="text" name="nombre" placeholder="Nombre comnpleto">
+		<div class="form_register"> 
+			<h1>REGISTRO</h1>
+			<hr>
+			<div clas="alert"></div>
+        	<form>
+            	<label for="nombre">Nombre de Paciente</label>
+            	<input type="text" name="nombre" placeholder="Nombre comnpleto">
+            	<label for="edad">Edad</label>
+            	<input type="text" name="edad"  placeholder="Nombre comnpleto">
+            	<label for="CI">CI</label>
+            	<input type="text" name="CI" placeholder="Nombre comnpleto">
+
+            	<input type="submit" value="Registrar Paciente" class="btn_save">
         </form>
+       </div>
 	</section>
 	
 </body>

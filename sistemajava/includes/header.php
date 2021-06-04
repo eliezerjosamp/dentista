@@ -13,7 +13,7 @@ session_start();
 			
 			<h1>Sistema Odontologia</h1>
 			<div class="optionsBar">
-				<p>Bolivia, 20 noviembre de 2017</p>
+				<p>Bolivia, 20 mayo de 2021</p>
 				<span>|</span>
 				<span class="user">JOSAM PINAYA</span>
 				<img class="photouser" src="img/user.png" alt="Usuario">

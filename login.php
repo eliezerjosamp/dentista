@@ -8,21 +8,21 @@
   require 'database.php';/**/
 
   if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');/**/
+    $message = 'paso 1';
+    $records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');/*saca datos de base de datos*/
+    $message = 'paso 1';/*variable mensaje*/
     $records->bindParam(':email', $_POST['email']);/*obtener parametro y vincular*/
     $records->execute();/*ejecutar consulta*/
     $results = $records->fetch(PDO::FETCH_ASSOC);/*obtencion de datos del usuario*/
-    $message = '';/*variable mensaje*/
 
-    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {/*si resultados no estan vasios  comparar contraseñas */
-      $_SESSION['user_id'] = $results['id'];/*almacena en variable sesion*/
-      $_SESSION['active']=true;
-      header("Location: /Dentista/sistemajava");/*redirigir pagina inicial*/
+    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])){//) {/*si resultados no estan y contraseñas iguales */
+        $_SESSION['user_id'] = $results['id'];/*almacena en variable sesion*/
+        $_SESSION['active']=true;
+        header("Location: /Dentista/sistemajava");/*redirigir agina inicial*/
     } else {
-      $message = 'Losiento tus credenciales no coinciden';/*mensaje de error de logeo*/
+      $message = 'Lo sentimos tus credenciales no coinciden';/*mensaje de error de logeo*/
     }
   }
-
 ?>
 
 

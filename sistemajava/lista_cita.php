@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<?php include "scripts.php"?>
+	<?php include "includes/scripts.php"?>
 	<title>Sistema Odontologia</title>
 </head>
 <body>
 
-	<?php include "header.php"?>	
+	<?php include "includes/header.php"?>	
 	<section id="container">
 		<h1>LISTA DE CITAS</h1>
         <form>
