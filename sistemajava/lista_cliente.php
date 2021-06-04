@@ -27,6 +27,7 @@
         		<td>
         			<a class="link_edit" href="#">Editar</a>|
         			<a class="link_elim" href="#">Eliminar</a>
+
         		</td>
         	</tr>
         </table>

@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<?php include "includes/header.php"?>	
+	<?php include "includes/header.php";?>	
 	<section id="container">
 		<h1>Bienvenido al sistema</h1>
 	</section>
