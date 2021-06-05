@@ -11,33 +11,15 @@
 			$CI=$_POST['CI'];
 			$tel=$_POST['tel'];
 
-			/*echo "SELECT * FROM pasiente WHERE nombre='$nombre' OR CI='$CI' ";
-			$records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email')
-			$records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');/*saca datos de base de datos
-   			 $message = 'paso 1';7
-    			$records->bindParam(':email', $_POST['email']);
-   				 $records->execute();
-    				$results = $records->fetch(PDO::FETCH_ASSOC)
-			*/
-			/*$query = mysqli_query($conn,"SELECT * FROM pasiente WHERE nombre='$nombre' OR CI='$CI' ");
-			$result = mysqli_fetch_array($query);*/
-
-			$records = $conn->prepare('SELECT * FROM pasiente WHERE nombre=$nombre OR CI=$CI ');
-			//$records->execute();
+			$records = $conn->prepare("SELECT * FROM pasiente WHERE nombre= '$nombre' OR CI='$CI' ");
+			$records->execute();
 			$result = $records->fetch(PDO::FETCH_ASSOC);	
 			if($result>0){
 				$alert='<p class="msg_error">EL pasiente YA EXISTE</p>';
 			}else{
-				//$sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
-   				// $stmt = $conn->prepare($sql);
-
-				//$query_insert=mysql_query($conn,"INSERT INTO pasiente(nombre,edad,CI,tel) VALUES('$nombre','edad','CI','tel')");
-				$sql = "INSERT INTO pasiente (nombre, edad,CI,tel) VALUES ($nombre,$edad,$CI,$tel)";
+				$sql = "INSERT INTO pasiente (nombre,edad,CI,tel) VALUES ('$nombre','$edad','$CI','$tel')";
     			$stmt = $conn->prepare($sql);
-    			$stmt->bindParam('$nombre', $_POST['nombre']);
-    			$stmt->bindParam('$edad', $_POST['edad']);
-    			$stmt->bindParam('$CI', $_POST['CI']);
-    			$stmt->bindParam('$tel', $_POST['tel']);
+    			$stmt->execute();
 				if($stmt){
 					$alert='<p class="msg_save">PASIENTE REGISTRADO CORRECTAMENTE.</p>';
 				}else{

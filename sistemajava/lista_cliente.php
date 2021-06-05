@@ -1,3 +1,8 @@
+<?php
+        include "../database.php";
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,17 +24,40 @@
         		<th>CI</th>
         		<th>Acciones</th>
         	</tr>
-        	<tr>
-        		<td>1</td>
-        		<td>josam</td>
-        		<td>23</td>
-        		<td>7351036</td>
-        		<td>
-        			<a class="link_edit" href="#">Editar</a>|
-        			<a class="link_elim" href="#">Eliminar</a>
+                        <?php 
+                                $sql = "SELECT u.idp,u.nombre,u.edad,.u.CI,u.tel FROM pasiente u";
+                                $stmt = $conn->prepare($sql);
+                                $stmt->execute();
+                                $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        		</td>
-        	</tr>
+                                if($result>0){
+
+
+
+                                        while ( $data= $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+                                        <tr>
+                                                <td><?php echo $data["idp"];?></td>
+                                                <td><?php echo $data["nombre"];?></td>
+                                                <td><?php echo $data["edad"];?></td>
+                                                <td><?php echo $data["CI"];?></td>
+                                                <td>
+                                                        <a class="link_edit" href="#">Editar</a>
+                                                        |
+                                                        <a class="link_elim" href="#">Eliminar</a>
+
+                                                </td>
+                                        </tr>
+
+                        <?php
+                                        }
+
+                                }
+                      
+
+                         ?>
+
+
         </table>
 	</section>
 	
